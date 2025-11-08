@@ -1,0 +1,3 @@
+echo 'public class Main { public static void main(String[] args) { System.out.println("Server running 🚀"); } }' > Main.java
+javac Main.java
+jar cfe server.jar Main Main.class
