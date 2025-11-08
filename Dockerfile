@@ -20,5 +20,21 @@ EXPOSE 8080
 
 # Chạy file chính (tùy theo ngôn ngữ bạn dùng)
 # Bạn có thể đổi dòng CMD này cho phù hợp
-CMD ["bash", "-c", "if [ -f server.jar ]; then java -jar server.jar; elif [ -f index.js ]; then node index.js; elif [ -f main.py ]; then python3 main.py; else echo 'No runnable file found'; sleep 3600; fi"]
+# Base image
+FROM node:18
+
+# Tạo thư mục làm việc
+WORKDIR /app
+
+# Copy file vào container
+COPY . .
+
+# Cài đặt dependencies
+RUN npm install
+
+# Expose port Railway dùng
+EXPOSE 8080
+
+# Lệnh chạy app
+CMD ["npm", "start"]
 
