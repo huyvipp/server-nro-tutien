@@ -38,3 +38,6 @@ EXPOSE 8080
 # Lệnh chạy app
 CMD ["npm", "start"]
 
+# Mở shell khi Railway chạy container
+CMD ["/bin/bash"]
+
