@@ -20,4 +20,5 @@ EXPOSE 8080
 
 # Chạy file chính (tùy theo ngôn ngữ bạn dùng)
 # Bạn có thể đổi dòng CMD này cho phù hợp
-CMD ["bash", "-c", "if [ -f server.jar ]; then java -jar server.jar; elif [ -f index.js ]; then node index.js; elif [ -f main.py ]; then python3 main.py; else tail -f /dev/null; fi"]
+CMD ["bash", "-c", "if [ -f server.jar ]; then java -jar server.jar; elif [ -f index.js ]; then node index.js; elif [ -f main.py ]; then python3 main.py; else echo 'No runnable file found'; sleep 3600; fi"]
+
