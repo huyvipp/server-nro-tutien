@@ -1,43 +1,13 @@
-# Base image: Ubuntu + các công cụ cơ bản
 FROM ubuntu:22.04
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Cập nhật và cài đặt tiện ích
+# Cài tiện ích cơ bản + unrar, node, python, java
 RUN apt update && apt install -y \
-    curl wget unzip git python3 python3-pip openjdk-17-jre-headless nodejs npm \
+    curl wget git unzip unrar python3 python3-pip openjdk-17-jre-headless nodejs npm \
     && apt clean
 
-# Thiết lập thư mục làm việc
 WORKDIR /app
-
-# Copy toàn bộ file từ repo vào container
 COPY . .
 
-# Nếu có file .rar, cài unrar để giải nén
-RUN apt install -y unrar && unrar x "*.rar" || true
-
-# Cổng mặc định
-EXPOSE 8080
-
-# Chạy file chính (tùy theo ngôn ngữ bạn dùng)
-# Bạn có thể đổi dòng CMD này cho phù hợp
-# Base image
-FROM node:18
-
-# Tạo thư mục làm việc
-WORKDIR /app
-
-# Copy file vào container
-COPY . .
-
-# Cài đặt dependencies
-RUN npm install
-
-# Expose port Railway dùng
-EXPOSE 8080
-
-# Lệnh chạy app
-CMD ["npm", "start"]
-
-# Mở shell khi Railway chạy container
+# Mở terminal khi container khởi chạy
 CMD ["/bin/bash"]
-
