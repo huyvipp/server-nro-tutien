@@ -40,3 +40,6 @@ console.log("✅ Tải file xong, giữ tiến trình hoạt động...");
 setInterval(() => {
   console.log("🌀 App vẫn đang chạy trên Railway...");
 }, 60000);
+
+process.stdin.resume();
+
