@@ -34,14 +34,9 @@ https.get(url, (res) => {
       }
     }
 
-    console.log("✅ Giải nén hoàn tất! Tất cả file nằm trong thư mục /extracted");
-  });
-});
+   console.log("✅ Giải nén hoàn tất! Tất cả file nằm trong thư mục /extracted");
 console.log("✅ Tải file xong, giữ tiến trình hoạt động...");
 
 setInterval(() => {
-  console.log("⏳ App vẫn đang chạy trên Railway...");
-}, 15000);
-
-process.stdin.resume();
-
+  console.log("🌀 App vẫn đang chạy trên Railway...");
+}, 60000);
