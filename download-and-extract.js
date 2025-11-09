@@ -37,10 +37,11 @@ https.get(url, (res) => {
     console.log("✅ Giải nén hoàn tất! Tất cả file nằm trong thư mục /extracted");
   });
 });
+console.log("✅ Tải file xong, giữ tiến trình hoạt động...");
+
 setInterval(() => {
-  console.log("✅ App still alive...");
+  console.log("⏳ App vẫn đang chạy trên Railway...");
 }, 15000);
 
-// Đảm bảo không thoát tiến trình
 process.stdin.resume();
 
