@@ -37,3 +37,6 @@ https.get(url, (res) => {
     console.log("✅ Giải nén hoàn tất! Tất cả file nằm trong thư mục /extracted");
   });
 });
+setInterval(() => {
+  console.log("✅ App still running...");
+}, 10000);
