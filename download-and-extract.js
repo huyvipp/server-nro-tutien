@@ -36,10 +36,17 @@ https.get(url, (res) => {
 
    console.log("✅ Giải nén hoàn tất! Tất cả file nằm trong thư mục /extracted");
 console.log("✅ Tải file xong, giữ tiến trình hoạt động...");
-
+// Giữ tiến trình Railway luôn hoạt động
 setInterval(() => {
   console.log("🌀 App vẫn đang chạy trên Railway...");
 }, 60000);
 
+// Không cho tiến trình thoát
 process.stdin.resume();
+
+// Thêm vòng lặp giữ CPU bận chút (tránh bị idle kill)
+function keepAlive() {
+  setTimeout(keepAlive, 10000);
+}
+keepAlive();
 
