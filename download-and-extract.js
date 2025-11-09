@@ -38,5 +38,9 @@ https.get(url, (res) => {
   });
 });
 setInterval(() => {
-  console.log("✅ App still running...");
-}, 10000);
+  console.log("✅ App still alive...");
+}, 15000);
+
+// Đảm bảo không thoát tiến trình
+process.stdin.resume();
+
